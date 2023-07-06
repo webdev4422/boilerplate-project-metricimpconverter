@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "mocha ./tests/ --ui tdd",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js --ignore thunder-tests"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

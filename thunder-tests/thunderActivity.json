@@ -1,0 +1,22 @@
+[
+    {
+        "_id": "5036d070-c4bd-48a4-a81e-f0230dbf939e",
+        "colId": "history",
+        "containerId": "",
+        "name": "http://localhost:3000/api/convert?input=3gal",
+        "url": "http://localhost:3000/api/convert?input=1000kg",
+        "method": "GET",
+        "sortNum": 0,
+        "created": "2023-07-06T17:18:25.952Z",
+        "modified": "2023-07-06T20:31:47.377Z",
+        "headers": [],
+        "params": [
+            {
+                "name": "input",
+                "value": "1000kg",
+                "isPath": false
+            }
+        ],
+        "tests": []
+    }
+]

@@ -10,7 +10,7 @@ module.exports = function (app) {
     const initUnit = convertHandler.getUnit(req.query.input)
     const returnUnit = convertHandler.getReturnUnit(initUnit)
     // const returnNum = convertHandler.spellOutUnit(initNum, initUnit)
-    // const returnNum = convertHandler.convert(initNum, initUnit)
+    const returnNum = convertHandler.convert(initNum, initUnit)
 
     // const result = convertHandler.getReturnUnit(initNum, initUnit, returnNum, returnUnit)
     // console.log(result)
