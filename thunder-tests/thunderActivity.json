@@ -4,16 +4,16 @@
         "colId": "history",
         "containerId": "",
         "name": "http://localhost:3000/api/convert?input=3gal",
-        "url": "http://localhost:3000/api/convert?input=1000",
+        "url": "http://localhost:3000/api/convert?input=km",
         "method": "GET",
         "sortNum": 0,
         "created": "2023-07-06T17:18:25.952Z",
-        "modified": "2023-07-08T13:16:30.594Z",
+        "modified": "2023-07-08T13:20:26.617Z",
         "headers": [],
         "params": [
             {
                 "name": "input",
-                "value": "1000",
+                "value": "km",
                 "isPath": false
             }
         ],
