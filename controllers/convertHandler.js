@@ -7,13 +7,14 @@ function ConvertHandler() {
 
   this.getUnit = (input) => {
     const units = ['gal', 'l', 'lbs', 'kg', 'mi', 'km']
-    let result = input.match(/[A-Za-z]+/)[0].toLowerCase()
+    let result = input.match(/[A-Za-z]+/)
+    if (!result) return result
+    result[0].toLowerCase()
     for (let i = 0; i < units.length; i++) {
       if (result == units[i]) {
         return result
       }
     }
-    return 'invalid unit'
   }
 
   this.getReturnUnit = (initUnit) => {
