@@ -9,11 +9,17 @@ module.exports = function (app) {
     const initNum = convertHandler.getNum(req.query.input)
     const initUnit = convertHandler.getUnit(req.query.input)
     const returnUnit = convertHandler.getReturnUnit(initUnit)
-    // const returnNum = convertHandler.spellOutUnit(initNum, initUnit)
     const returnNum = convertHandler.convert(initNum, initUnit)
-
-    // const result = convertHandler.getReturnUnit(initNum, initUnit, returnNum, returnUnit)
-    // console.log(result)
-    res.json('ok')
+    const initUnitString = convertHandler.spellOutUnit(initUnit)
+    const returnUnitString = convertHandler.spellOutUnit(returnUnit)
+    const string = convertHandler.getString(initNum, initUnitString, returnNum, returnUnitString)
+    // return { initNum: 3.1, initUnit: 'mi', returnNum: 4.98895, returnUnit: 'km', string: '3.1 miles converts to 4.98895 kilometers' }
+    res.json({
+      initNum,
+      initUnit,
+      returnNum,
+      returnUnit,
+      string,
+    })
   })
 }

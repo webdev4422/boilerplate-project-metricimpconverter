@@ -28,7 +28,21 @@ function ConvertHandler() {
   }
 
   this.spellOutUnit = (unit) => {
+    const unitsSpellOut = {
+      gal: 'gallons ',
+      l: 'liters',
+      lbs: 'pounds',
+      kg: 'kilograms',
+      mi: 'miles',
+      km: 'kilometers ',
+    }
     let result
+    for (const item in unitsSpellOut) {
+      if (item == unit) {
+        result = unitsSpellOut[item] // initUnitString returnUnitString
+      }
+    }
+    console.log(result)
     // 'invalid number and unit'
     return result
   }
@@ -52,12 +66,13 @@ function ConvertHandler() {
         result = initNum * unitsValues[initUnit]
       }
     }
-    return result.toFixed(5) // returnNum
+    return result.toFixed(5) // returnNum rounded to 5 digits
   }
 
-  this.getString = (initNum, initUnit, returnNum, returnUnit) => {
-    let result
-
+  this.getString = (initNum, initUnitString, returnNum, returnUnitString) => {
+    let result = {
+      string: `${initNum} ${initUnitString} converts to ${returnNum} ${returnUnitString}`,
+    }
     return result
   }
 }
