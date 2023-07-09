@@ -7,7 +7,8 @@ function ConvertHandler() {
     if (result == null && input.match(/^[^A-Za-z]/)) {
       return result // null 'invalid number'
     } else if (input.match(/^[A-Za-z]/)) {
-      return (result = 1) // 1 unit
+      result = 1
+      return +result // 1 unit
     } else {
       result = result[0].slice(0, -1)
       if (result.match(/\//) == '/') {
@@ -15,7 +16,7 @@ function ConvertHandler() {
         d2 = result.match(/\/\d+\.\d+|\/\d+/)[0].slice(1)
         result = +d1 / +d2
       }
-      return result // initNum
+      return +result // initNum
     }
   }
 
@@ -47,7 +48,7 @@ function ConvertHandler() {
 
   this.spellOutUnit = (unit) => {
     //prettier-ignore
-    const unitsSpellOut = { gal: 'gallons ', L: 'liters', lbs: 'pounds', kg: 'kilograms', mi: 'miles', km: 'kilometers ', }
+    const unitsSpellOut = { gal: 'gallons', L: 'liters', lbs: 'pounds', kg: 'kilograms', mi: 'miles', km: 'kilometers', }
     let result
 
     for (const item in unitsSpellOut) {
@@ -71,13 +72,12 @@ function ConvertHandler() {
         result = initNum * unitsValues[initUnit]
       }
     }
-    return result.toFixed(5) // returnNum rounded to 5 digits
+    return +result.toFixed(5) // returnNum rounded to 5 digits
   }
 
   this.getString = (initNum, initUnitString, returnNum, returnUnitString) => {
-    let result = {
-      string: `${initNum} ${initUnitString} converts to ${returnNum} ${returnUnitString}`,
-    }
+    let result = `${initNum} ${initUnitString} converts to ${returnNum} ${returnUnitString}`
+
     return result // string
   }
 }
