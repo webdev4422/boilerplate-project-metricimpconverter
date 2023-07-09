@@ -7,8 +7,9 @@ module.exports = function (app) {
   let convertHandler = new ConvertHandler() // convert units
 
   app.route('/api/convert').get(function (req, res) {
+    console.log(req.query.input)
     let initNum = convertHandler.getNum(req.query.input)
-    if (initNum == null) initNum = 1 // Handle null num
+    if (initNum == null) return res.json('invalid number') // Handle null num
 
     const initUnit = convertHandler.getUnit(req.query.input)
     if (initUnit == null) return res.json('invalid unit') // Handle null unit

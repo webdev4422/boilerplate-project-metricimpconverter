@@ -1,10 +1,22 @@
 function ConvertHandler() {
   this.getNum = (input) => {
-    let result = input.match(/\d+/)
+    let regex =
+      /\d+\.\d+\/\d+\.\d+\w|\d+\.\d+\/\d+\w|\d+\/\d+\.\d+\w|^\d+\.\d+\w|^\d+\/\d+\w|^\d+\w/ // Handle proper regex match
+    let result = input.match(regex)
 
-    if (!result) return result // 'invalid number'
-    result = parseInt(result[0])
-    return result // initNum
+    if (result == null && input.match(/^[^A-Za-z]/)) {
+      return result // null 'invalid number'
+    } else if (input.match(/^[A-Za-z]/)) {
+      return (result = 1) // 1 unit
+    } else {
+      result = result[0].slice(0, -1)
+      if (result.match(/\//) == '/') {
+        d1 = result.match(/\d+\.\d+|\d+/)[0]
+        d2 = result.match(/\/\d+\.\d+|\/\d+/)[0].slice(1)
+        result = +d1 / +d2
+      }
+      return result // initNum
+    }
   }
 
   this.getUnit = (input) => {
