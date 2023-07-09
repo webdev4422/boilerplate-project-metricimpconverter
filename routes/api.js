@@ -8,10 +8,11 @@ module.exports = function (app) {
 
   app.route('/api/convert').get(function (req, res) {
     console.log(req.query.input)
-    let initNum = convertHandler.getNum(req.query.input)
-    if (initNum == null) return res.json('invalid number') // Handle null num
-
+    const initNum = convertHandler.getNum(req.query.input)
     const initUnit = convertHandler.getUnit(req.query.input)
+
+    if (initNum == null && initUnit == null) return res.json('invalid number and unit') // Handle null num && unit
+    if (initNum == null) return res.json('invalid number') // Handle null num
     if (initUnit == null) return res.json('invalid unit') // Handle null unit
 
     const returnUnit = convertHandler.getReturnUnit(initUnit)
