@@ -7,8 +7,6 @@ let expect = require('chai').expect
 
 /*
 TODO
-
-
 convertHandler should correctly convert gal to L.
 convertHandler should correctly convert L to gal.
 convertHandler should correctly convert mi to km.
@@ -46,10 +44,10 @@ suite('Unit Tests', () => {
       expect(convertHandler.getUnit('1gam')).to.be.equal(null)
     })
     test('#9 convertHandler should return the correct return unit for each valid input unit.', () => {
-      // expect(convertHandler.getUnit('1gal')).to.be.equal('gal')
+      expect(convertHandler.getUnit('1gal')).to.be.equal('gal')
     })
     test('#10 convertHandler should correctly return the spelled-out string unit for each valid input unit.', () => {
-      // expect(convertHandler.getUnit('1gal')).to.be.equal('gal')
+      expect(convertHandler.spellOutUnit('gal')).to.be.equal('gallons')
     })
   })
 })
