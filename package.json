@@ -1,7 +1,7 @@
 {
   "name": "fcc-imperial-metric-converter-boilerplate",
   "version": "1.0.0",
-  "description": "Metric / Imperial Unit Converter. Start time 17:00 06.07.2023",
+  "description": "Metric / Imperial Unit Converter. Start time: 17:00 06.07.2023; End time: 15:00 10.07.2023",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
