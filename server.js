@@ -24,8 +24,6 @@ app.route('/').get(function (req, res) {
   res.sendFile(process.cwd() + '/views/index.html')
 })
 
-
-
 //For FCC testing purposes
 fccTestingRoutes(app)
 
