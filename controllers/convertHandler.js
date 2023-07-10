@@ -1,7 +1,7 @@
 function ConvertHandler() {
   this.getNum = (input) => {
     let regex =
-      /\d+\.\d+\/\d+\.\d+\w|\d+\.\d+\/\d+\w|\d+\/\d+\.\d+\w|^\d+\.\d+\w|^\d+\/\d+\w|^\d+\w/ // Handle proper regex match
+      /^\d+\.\d+\/\d+\.\d+\w|^\d+\.\d+\/\d+\w|^\d+\/\d+\.\d+\w|^\d+\.\d+\w|^\d+\/\d+\w|^\d+\w/ // Handle proper regex match
     let result = input.match(regex)
 
     if (result == null && input.match(/^[^A-Za-z]/)) {
