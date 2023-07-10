@@ -5,15 +5,6 @@ let convertHandler = new ConvertHandler()
 
 let expect = require('chai').expect
 
-/*
-TODO
-convertHandler should correctly convert gal to L.
-convertHandler should correctly convert L to gal.
-convertHandler should correctly convert mi to km.
-convertHandler should correctly convert km to mi.
-convertHandler should correctly convert lbs to kg.
-convertHandler should correctly convert kg to lbs.
-*/
 suite('Unit Tests', () => {
   suite('Numbers', () => {
     test('#1 convertHandler should correctly read a whole number input.', () => {
@@ -35,7 +26,7 @@ suite('Unit Tests', () => {
       expect(convertHandler.getNum('gal')).to.be.equal(1)
     })
   })
-  /*--------------------------------------------------------------------------*/
+
   suite('Units', () => {
     test('#7 convertHandler should correctly read each valid input unit.', () => {
       expect(convertHandler.getUnit('1gal')).to.be.equal('gal')
@@ -48,6 +39,27 @@ suite('Unit Tests', () => {
     })
     test('#10 convertHandler should correctly return the spelled-out string unit for each valid input unit.', () => {
       expect(convertHandler.spellOutUnit('gal')).to.be.equal('gallons')
+    })
+  })
+
+  suite('Converter', () => {
+    test('#10 convertHandler should correctly convert gal to L.', () => {
+      expect(convertHandler.getReturnUnit('gal')).to.be.equal('L')
+    })
+    test('#11 convertHandler should correctly convert L to gal.', () => {
+      expect(convertHandler.getReturnUnit('L')).to.be.equal('gal')
+    })
+    test('#12 convertHandler should correctly convert mi to km.', () => {
+      expect(convertHandler.getReturnUnit('mi')).to.be.equal('km')
+    })
+    test('#13 convertHandler should correctly convert km to mi.', () => {
+      expect(convertHandler.getReturnUnit('km')).to.be.equal('mi')
+    })
+    test('#14 convertHandler should correctly convert lbs to kg.', () => {
+      expect(convertHandler.getReturnUnit('lbs')).to.be.equal('kg')
+    })
+    test('#15 convertHandler should correctly convert kg to lbs.', () => {
+      expect(convertHandler.getReturnUnit('kg')).to.be.equal('lbs')
     })
   })
 })
