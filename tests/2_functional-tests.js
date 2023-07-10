@@ -43,11 +43,30 @@ suite('Functional Tests', () => {
           done()
         })
     })
-    // test('#4 Convert an invalid number AND unit such as 3/7.2/4kilomegagram: GET request to /api/convert.', (done) => {
-    //   // expect(convertHandler.getReturnUnit('km')).to.be.equal('mi')
-    // })
-    // test('#5 Convert with no number such as kg: GET request to /api/convert.', (done) => {
-    //   // expect(convertHandler.getReturnUnit('lbs')).to.be.equal('kg')
-    // })
+    test('#4 Convert an invalid number AND unit such as 3/7.2/4kilomegagram: GET request to /api/convert.', (done) => {
+      chai
+        .request(server)
+        .keepOpen()
+        .get('/api/convert')
+        .query({ input: '3/7.2/4kilomegagram' })
+        .end((err, res) => {
+          expect(err).to.be.null
+          expect(res.text).to.be.equal('"invalid number and unit"')
+          done()
+        })
+    })
+    test('#5 Convert with no number such as kg: GET request to /api/convert.', (done) => {
+      chai
+        .request(server)
+        .keepOpen()
+        .get('/api/convert')
+        .query({ input: 'kg' })
+        .end((err, res) => {
+          expect(err).to.be.null
+          expect(res.body.returnNum).to.be.a('number')
+          expect(res.body.returnUnit).to.be.equal('lbs')
+          done()
+        })
+    })
   })
 })
