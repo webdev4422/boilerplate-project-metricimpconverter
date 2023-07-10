@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "dev": "nodemon server.js --ignore thunder-tests",
     "test": "mocha ./tests/ --ui tdd",
-    "dev": "nodemon server.js --ignore thunder-tests"
+    "test:watch": "nodemon --exec \"mocha --recursive ./tests/1_unit-tests.js --ui tdd\""
   },
   "dependencies": {
     "body-parser": "^1.19.0",

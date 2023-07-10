@@ -4,16 +4,16 @@
         "colId": "history",
         "containerId": "",
         "name": "http://localhost:3000/api/convert?input=3gal",
-        "url": "http://localhost:3000/api/convert?input=1gal",
+        "url": "http://localhost:3000/api/convert?input=1/gal",
         "method": "GET",
         "sortNum": 0,
         "created": "2023-07-06T17:18:25.952Z",
-        "modified": "2023-07-09T09:54:35.454Z",
+        "modified": "2023-07-10T06:53:56.342Z",
         "headers": [],
         "params": [
             {
                 "name": "input",
-                "value": "1gal",
+                "value": "1/gal",
                 "isPath": false
             }
         ],

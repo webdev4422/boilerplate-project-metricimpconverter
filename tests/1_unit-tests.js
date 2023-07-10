@@ -4,12 +4,11 @@ const ConvertHandler = require('../controllers/convertHandler.js')
 let convertHandler = new ConvertHandler()
 
 let expect = require('chai').expect
-var should = require('chai').should()
 
 /*
 TODO
-convertHandler should correctly read a whole number input.
-convertHandler should correctly read a decimal number input.
+DONE convertHandler should correctly read a whole number input.
+DONE convertHandler should correctly read a decimal number input.
 convertHandler should correctly read a fractional input.
 convertHandler should correctly read a fractional input with a decimal.
 convertHandler should correctly return an error on a double-fraction (i.e. 3/2/3).
@@ -27,30 +26,12 @@ convertHandler should correctly convert kg to lbs.
 */
 suite('Unit Tests', () => {
   suite('Numbers', () => {
-    // #1
-    test('convertHandler should correctly read a whole number input.', () => {
-      expect(convertHandler.getNum('1gal')).to.be.an('number')
-      // assert.convertHandler.getNum('1gal')(Number, 'Return number')
-      // assert.isNotNull(1, '1 is not null')
+    test('#1 convertHandler should correctly read a whole number input.', () => {
+      expect(convertHandler.getNum('1gal')).to.be.a('number')
     })
-    // #2
-    // test('#isDefined, #isUndefined', () => {
-    //   assert.isDefined(null, 'null is not undefined')
-    //   assert.isUndefined(undefined, 'undefined IS undefined')
-    //   assert.isDefined('hello', 'A string is not undefined')
-    // })
-    // // #3
-    // test('#isOk, #isNotOk', () => {
-    //   assert.isNotOk(null, 'null is falsey')
-    //   assert.isOk("I'm truthy", 'A string is truthy')
-    //   assert.isOk(true, 'true is truthy')
-    // })
-    // // #4
-    // test('#isTrue, #isNotTrue', () => {
-    //   assert.isTrue(true, 'true is true')
-    //   assert.isTrue(!!'double negation', 'Double negation of a truthy value is true')
-    //   assert.isNotTrue({ value: 'truthy' }, 'Objects are truthy, but are not boolean values')
-    // })
+    test('#2 convertHandler should correctly read a decimal number input.', () => {
+      expect(convertHandler.getNum('1.5gal')).to.be.equal(1.5)
+    })
   })
   /*--------------------------------------------------------------------------*/
   // suite('Units', () => {
