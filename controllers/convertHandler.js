@@ -24,7 +24,6 @@ function ConvertHandler() {
     const units = ['gal', 'l', 'lbs', 'kg', 'mi', 'km']
     let result = input.match(/[A-Za-z]+/)
 
-    if (!result) return result // 'invalid unit'
     result = result[0].toLowerCase()
     for (let i = 0; i < units.length; i++) {
       if (result == units[i]) {
@@ -32,6 +31,8 @@ function ConvertHandler() {
         return result // initUnit
       }
     }
+    result = null
+    return result // null 'invalid unit'
   }
 
   this.getReturnUnit = (initUnit) => {

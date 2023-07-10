@@ -7,10 +7,8 @@ let expect = require('chai').expect
 
 /*
 TODO
-convertHandler should correctly read each valid input unit.
-convertHandler should correctly return an error for an invalid input unit.
-convertHandler should return the correct return unit for each valid input unit.
-convertHandler should correctly return the spelled-out string unit for each valid input unit.
+
+
 convertHandler should correctly convert gal to L.
 convertHandler should correctly convert L to gal.
 convertHandler should correctly convert mi to km.
@@ -40,29 +38,18 @@ suite('Unit Tests', () => {
     })
   })
   /*--------------------------------------------------------------------------*/
-  // suite('Units', () => {
-  //   // #1
-  //   test('#isNull, #isNotNull', () => {
-  //     assert.isNull(null, 'This is an optional error description - e.g. null is null')
-  //     assert.isNotNull(1, '1 is not null')
-  //   })
-  //   // #2
-  //   test('#isDefined, #isUndefined', () => {
-  //     assert.isDefined(null, 'null is not undefined')
-  //     assert.isUndefined(undefined, 'undefined IS undefined')
-  //     assert.isDefined('hello', 'A string is not undefined')
-  //   })
-  //   // #3
-  //   test('#isOk, #isNotOk', () => {
-  //     assert.isNotOk(null, 'null is falsey')
-  //     assert.isOk("I'm truthy", 'A string is truthy')
-  //     assert.isOk(true, 'true is truthy')
-  //   })
-  //   // #4
-  //   test('#isTrue, #isNotTrue', () => {
-  //     assert.isTrue(true, 'true is true')
-  //     assert.isTrue(!!'double negation', 'Double negation of a truthy value is true')
-  //     assert.isNotTrue({ value: 'truthy' }, 'Objects are truthy, but are not boolean values')
-  //   })
-  // })
+  suite('Units', () => {
+    test('#7 convertHandler should correctly read each valid input unit.', () => {
+      expect(convertHandler.getUnit('1gal')).to.be.equal('gal')
+    })
+    test('#8 convertHandler should correctly return an error for an invalid input unit.', () => {
+      expect(convertHandler.getUnit('1gam')).to.be.equal(null)
+    })
+    test('#9 convertHandler should return the correct return unit for each valid input unit.', () => {
+      // expect(convertHandler.getUnit('1gal')).to.be.equal('gal')
+    })
+    test('#10 convertHandler should correctly return the spelled-out string unit for each valid input unit.', () => {
+      // expect(convertHandler.getUnit('1gal')).to.be.equal('gal')
+    })
+  })
 })
