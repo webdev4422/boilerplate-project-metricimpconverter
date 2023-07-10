@@ -19,16 +19,34 @@ suite('Functional Tests', () => {
           done()
         })
     })
-    // test('#2 Convert an invalid input such as 32g: GET request to /api/convert.', () => {
-    //   // expect(convertHandler.getReturnUnit('L')).to.be.equal('gal')
-    // })
-    // test('#3 Convert an invalid number such as 3/7.2/4kg: GET request to /api/convert.', () => {
-    //   // expect(convertHandler.getReturnUnit('mi')).to.be.equal('km')
-    // })
-    // test('#4 Convert an invalid number AND unit such as 3/7.2/4kilomegagram: GET request to /api/convert.', () => {
+    test('#2 Convert an invalid input such as 32g: GET request to /api/convert.', (done) => {
+      chai
+        .request(server)
+        .keepOpen()
+        .get('/api/convert')
+        .query({ input: '32g' })
+        .end((err, res) => {
+          expect(err).to.be.null
+          expect(res.text).to.be.equal('"invalid unit"')
+          done()
+        })
+    })
+    test('#3 Convert an invalid number such as 3/7.2/4kg: GET request to /api/convert.', (done) => {
+      chai
+        .request(server)
+        .keepOpen()
+        .get('/api/convert')
+        .query({ input: '3/7.2/4kg' })
+        .end((err, res) => {
+          expect(err).to.be.null
+          expect(res.text).to.be.equal('"invalid number"')
+          done()
+        })
+    })
+    // test('#4 Convert an invalid number AND unit such as 3/7.2/4kilomegagram: GET request to /api/convert.', (done) => {
     //   // expect(convertHandler.getReturnUnit('km')).to.be.equal('mi')
     // })
-    // test('#5 Convert with no number such as kg: GET request to /api/convert.', () => {
+    // test('#5 Convert with no number such as kg: GET request to /api/convert.', (done) => {
     //   // expect(convertHandler.getReturnUnit('lbs')).to.be.equal('kg')
     // })
   })

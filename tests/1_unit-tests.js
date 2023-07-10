@@ -9,6 +9,7 @@ suite('Unit Tests', () => {
   suite('Numbers', () => {
     test('#1 convertHandler should correctly read a whole number input.', () => {
       expect(convertHandler.getNum('1gal')).to.be.a('number')
+      // assert.equal(convertHandler.getNum('1gal'), 1)
     })
     test('#2 convertHandler should correctly read a decimal number input.', () => {
       expect(convertHandler.getNum('1.5gal')).to.be.equal(1.5)
