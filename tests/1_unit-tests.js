@@ -7,12 +7,6 @@ let expect = require('chai').expect
 
 /*
 TODO
-DONE convertHandler should correctly read a whole number input.
-DONE convertHandler should correctly read a decimal number input.
-convertHandler should correctly read a fractional input.
-convertHandler should correctly read a fractional input with a decimal.
-convertHandler should correctly return an error on a double-fraction (i.e. 3/2/3).
-convertHandler should correctly default to a numerical input of 1 when no numerical input is provided.
 convertHandler should correctly read each valid input unit.
 convertHandler should correctly return an error for an invalid input unit.
 convertHandler should return the correct return unit for each valid input unit.
@@ -31,6 +25,18 @@ suite('Unit Tests', () => {
     })
     test('#2 convertHandler should correctly read a decimal number input.', () => {
       expect(convertHandler.getNum('1.5gal')).to.be.equal(1.5)
+    })
+    test('#3 convertHandler should correctly read a fractional input.', () => {
+      expect(convertHandler.getNum('1/2gal')).to.be.equal(0.5)
+    })
+    test('#4 convertHandler should correctly read a fractional input with a decimal.', () => {
+      expect(convertHandler.getNum('1.5/2gal')).to.be.equal(0.75)
+    })
+    test('#5 convertHandler should correctly return an error on a double-fraction (i.e. 3/2/3).', () => {
+      expect(convertHandler.getNum('3/2/3gal')).to.be.equal(null)
+    })
+    test('#6 convertHandler should correctly default to a numerical input of 1 when no numerical input is provided.', () => {
+      expect(convertHandler.getNum('gal')).to.be.equal(1)
     })
   })
   /*--------------------------------------------------------------------------*/
